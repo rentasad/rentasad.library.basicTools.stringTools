@@ -573,14 +573,12 @@ public class StringTool
     }
 
     /**
-     * 
-     * Description:
-     * 
-     * @param plaintext
-     * @return
-     * @throws NoSuchAlgorithmException
-     * @throws UnsupportedEncodingException
-     *             Creation: 06.11.2017 by mst
+     * Generates an MD5 hash from a given plaintext string.
+     *
+     * @param plaintext the input string to be hashed
+     * @return the MD5 hash of the input string in hexadecimal format
+     * @throws NoSuchAlgorithmException if no Provider supports a MessageDigestSpi implementation for MD5
+     * @throws UnsupportedEncodingException if the named charset is not supported
      */
     public static String getMd5HashFromString(String plaintext) throws NoSuchAlgorithmException, UnsupportedEncodingException
     {
@@ -589,12 +587,12 @@ public class StringTool
         m.update(plaintext.getBytes());
         byte[] digest = m.digest();
         BigInteger bigInt = new BigInteger(1, digest);
-        String hashtext = bigInt.toString(16);
+        StringBuilder hashtext = new StringBuilder(bigInt.toString(16));
         // Now we need to zero pad it if you actually want the full 32 chars.
         while (hashtext.length() < 32)
         {
-            hashtext = "0" + hashtext;
+            hashtext.insert(0, "0");
         }
-        return hashtext;
+        return hashtext.toString();
     }
 }
