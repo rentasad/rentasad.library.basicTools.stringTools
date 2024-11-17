@@ -1,7 +1,9 @@
 package rentasad.library.basicTools;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 
@@ -24,7 +26,7 @@ public class StringToolTest
 		replacements.put("name", "John");
 		replacements.put("item", "book");
 		String result = StringTool.stringReplacer(replacements, "Hello #NAME#, you borrowed a #ITEM#.");
-		Assert.assertEquals("Hello John, you borrowed a book.", result);
+		Assertions.assertEquals("Hello John, you borrowed a book.", result);
 	}
 
 	@Test
@@ -33,7 +35,7 @@ public class StringToolTest
 		HashMap<String, String> replacements = new HashMap<>();
 		replacements.put("name", null);
 		String result = StringTool.stringReplacer(replacements, "Hello #NAME#, welcome!");
-		Assert.assertEquals("Hello , welcome!", result);
+		Assertions.assertEquals("Hello , welcome!", result);
 	}
 
 	@Test
@@ -41,7 +43,7 @@ public class StringToolTest
 	{
 		HashMap<String, String> replacements = new HashMap<>();
 		String result = StringTool.stringReplacer(replacements, "Hello #NAME#, welcome!");
-		Assert.assertEquals("Hello #NAME#, welcome!", result);
+		Assertions.assertEquals("Hello #NAME#, welcome!", result);
 	}
 
 	@Test
@@ -50,7 +52,7 @@ public class StringToolTest
 		HashMap<String, String> replacements = new HashMap<>();
 		replacements.put("name", "John");
 		String result = StringTool.stringReplacer(replacements, "Hello world!");
-		Assert.assertEquals("Hello world!", result);
+		Assertions.assertEquals("Hello world!", result);
 	}
 
 	@Test
@@ -60,7 +62,7 @@ public class StringToolTest
 		replacements.put("greet", "Hi");
 		replacements.put("user", "Alice");
 		String result = StringTool.stringReplacer(replacements, "#GREET#, #USER#");
-		Assert.assertEquals("Hi, Alice", result);
+		Assertions.assertEquals("Hi, Alice", result);
 	}
 
 	@Test
@@ -69,42 +71,42 @@ public class StringToolTest
 		HashMap<String, String> replacements = new HashMap<>();
 		replacements.put("Value", "123");
 		String result = StringTool.stringReplacer(replacements, "This is a #VALUE#.");
-		Assert.assertEquals("This is a 123.", result);
+		Assertions.assertEquals("This is a 123.", result);
 	}
 
 	@Test
 	public void testEscapeStringToHtml_WithUmlauts()
 	{
 		String result = StringTool.escapeStringToHtml("ÄäÖöÜü");
-		Assert.assertEquals("&Auml;&auml;&Ouml;&ouml;&Uuml;&uuml;", result);
+		Assertions.assertEquals("&Auml;&auml;&Ouml;&ouml;&Uuml;&uuml;", result);
 	}
 
 	@Test
 	public void testEscapeStringToHtml_WithAccentedCharacters()
 	{
 		String result = StringTool.escapeStringToHtml("ÀÁÂÃÇÈÉÊÌÍÎÑÒÓÔÕÙÚÛÝ");
-		Assert.assertEquals("&Agrave;&Aacute;&Acirc;&Atilde;&Ccedil;&Egrave;&Eacute;&Ecirc;&Igrave;&Iacute;&Icirc;&Ntilde;&Ograve;&Oacute;&Ocirc;&Otilde;&Ugrave;&Uacute;&Ucirc;&Yacute;", result);
+		Assertions.assertEquals("&Agrave;&Aacute;&Acirc;&Atilde;&Ccedil;&Egrave;&Eacute;&Ecirc;&Igrave;&Iacute;&Icirc;&Ntilde;&Ograve;&Oacute;&Ocirc;&Otilde;&Ugrave;&Uacute;&Ucirc;&Yacute;", result);
 	}
 
 	@Test
 	public void testEscapeStringToHtml_WithSpecialCharacters()
 	{
 		String result = StringTool.escapeStringToHtml("ŸÿŠšß");
-		Assert.assertEquals("&Yuml;&yuml;&Scaron;&scaron;&szlig;", result);
+		Assertions.assertEquals("&Yuml;&yuml;&Scaron;&scaron;&szlig;", result);
 	}
 
 	@Test
 	public void testEscapeStringToHtml_WithNonHtmlEntities()
 	{
 		String result = StringTool.escapeStringToHtml("Hello World!");
-		Assert.assertEquals("Hello World!", result);
+		Assertions.assertEquals("Hello World!", result);
 	}
 
 	@Test
 	public void testEscapeStringToHtml_WithMixedCharacters()
 	{
 		String result = StringTool.escapeStringToHtml("ÄäÖöÜüŸÿ");
-		Assert.assertEquals("&Auml;&auml;&Ouml;&ouml;&Uuml;&uuml;&Yuml;&yuml;", result);
+		Assertions.assertEquals("&Auml;&auml;&Ouml;&ouml;&Uuml;&uuml;&Yuml;&yuml;", result);
 	}
 
 	@Test
@@ -113,7 +115,7 @@ public class StringToolTest
 		String input = "test";
 		String expectedHash = "098f6bcd4621d373cade4e832627b4f6";
 		String result = StringTool.getMd5HashFromString(input);
-		Assert.assertEquals(expectedHash, result);
+		Assertions.assertEquals(expectedHash, result);
 	}
 
 	@Test
@@ -122,7 +124,7 @@ public class StringToolTest
 		String input = "";
 		String expectedHash = "d41d8cd98f00b204e9800998ecf8427e";
 		String result = StringTool.getMd5HashFromString(input);
-		Assert.assertEquals(expectedHash, result);
+		Assertions.assertEquals(expectedHash, result);
 	}
 
 	@Test
@@ -131,6 +133,6 @@ public class StringToolTest
 		String input = "!@#$$%^&*()_+";
 		String expectedHash = "13682b4696c35bfea2dea9392eca4151";
 		String result = StringTool.getMd5HashFromString(input);
-		Assert.assertEquals(expectedHash, result);
+		Assertions.assertEquals(expectedHash, result);
 	}
 }
