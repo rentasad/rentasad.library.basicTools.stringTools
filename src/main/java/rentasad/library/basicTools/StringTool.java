@@ -62,177 +62,119 @@ public class StringTool
 	}
 
 	/**
-	 * Escapes special characters in the given string to their corresponding HTML entities.
-	 *
-	 * @param valueString The input string that may contain special characters to be converted to HTML entities.
-	 * @return A string with special characters replaced by HTML entities, or an empty string if the input is null.
-	 */
-	public static String escapeStringToHtml(final String valueString)
-	{
-		String returnString = "";
-		if (valueString != null)
-		{
-			returnString = valueString.replace("Ä", "&Auml;");
-			returnString = returnString.replace("ä", "&auml;");
-			returnString = returnString.replace("Ë", "&Euml;");
-			returnString = returnString.replace("ë", "&euml;");
-			returnString = returnString.replace("Ï", "&Iuml;");
-			returnString = returnString.replace("ï", "&iuml;");
-			returnString = returnString.replace("Ö", "&Ouml;");
-			returnString = returnString.replace("ö", "&ouml;");
-			returnString = returnString.replace("Ü", "&Uuml;");
-			returnString = returnString.replace("ü", "&uuml;");
-			returnString = returnString.replace("Ÿ", "&Yuml;");
-			returnString = returnString.replace("ÿ", "&yuml;");
-			returnString = returnString.replace("À", "&Agrave;");
-			returnString = returnString.replace("Á", "&Aacute;");
-			returnString = returnString.replace("Â", "&Acirc;");
-			returnString = returnString.replace("Ã", "&Atilde;");
-			// returnString = returnString.replace("�...", "&Aring;");
-			returnString = returnString.replace("Æ", "&AElig;");
-			returnString = returnString.replace("Ç", "&Ccedil;");
-			returnString = returnString.replace("È", "&Egrave;");
-			returnString = returnString.replace("É", "&Eacute;");
-			returnString = returnString.replace("Ê", "&Ecirc;");
-			returnString = returnString.replace("Ì", "&Igrave;");
-			returnString = returnString.replace("Í", "&Iacute;");
-			returnString = returnString.replace("Î", "&Icirc;");
-			returnString = returnString.replace("Ð", "&ETH;");
-			returnString = returnString.replace("Ñ", "&Ntilde;");
-			returnString = returnString.replace("Ò", "&Ograve;");
-			returnString = returnString.replace("Ó", "&Oacute;");
-			returnString = returnString.replace("Ô", "&Ocirc;");
-			returnString = returnString.replace("Õ", "&Otilde;");
-			returnString = returnString.replace("Ø", "&Oslash;");
-			returnString = returnString.replace("Œ", "&OElig;");
-			returnString = returnString.replace("Ù", "&Ugrave;");
-			returnString = returnString.replace("Ú", "&Uacute;");
-			returnString = returnString.replace("Û", "&Ucirc;");
-			returnString = returnString.replace("Ý", "&Yacute;");
-			returnString = returnString.replace("Þ", "&THORN;");
-			returnString = returnString.replace("à", "&agrave;");
-			returnString = returnString.replace("á", "&aacute;");
-			returnString = returnString.replace("â", "&acirc;");
-			returnString = returnString.replace("ã", "&atilde;");
-			returnString = returnString.replace("å", "&aring;");
-			returnString = returnString.replace("æ", "&aelig;");
-			returnString = returnString.replace("ç", "&ccedil;");
-			returnString = returnString.replace("è", "&egrave;");
-			returnString = returnString.replace("é", "&eacute;");
-			returnString = returnString.replace("ê", "&ecirc;");
-			returnString = returnString.replace("ì", "&igrave;");
-			returnString = returnString.replace("í", "&iacute;");
-			returnString = returnString.replace("î", "&icirc;");
-			returnString = returnString.replace("ð", "&eth;");
-			returnString = returnString.replace("ñ", "&ntilde;");
-			returnString = returnString.replace("ò", "&ograve;");
-			returnString = returnString.replace("ó", "&oacute;");
-			returnString = returnString.replace("ô", "&ocirc;");
-			returnString = returnString.replace("õ", "&otilde;");
-			returnString = returnString.replace("ø", "&oslash;");
-			returnString = returnString.replace("�", "&oelig;");
-			returnString = returnString.replace("ù", "&ugrave;");
-			returnString = returnString.replace("ú", "&uacute;");
-			returnString = returnString.replace("û", "&ucirc;");
-			returnString = returnString.replace("ý", "&yacute;");
-			returnString = returnString.replace("þ", "&thorn;");
-			returnString = returnString.replace("Š", "&Scaron;");
-			returnString = returnString.replace("š", "&scaron;");
-			// returnString = returnString.replace("ae�", "&Ccaron;");
-			// returnString = returnString.replace("ae�", "&ccaron;");
-			returnString = returnString.replace("ß", "&szlig;");
-			/*
-			 * returnString = returnString.replace("Α", "&Alpha;");
-			 * returnString = returnString.replace("Β", "&Beta;");
-			 * returnString = returnString.replace("�"", "&Gamma;");
-			 * returnString = returnString.replace("�"", "&Delta;");
-			 * returnString = returnString.replace("Ε", "&Epsilon;");
-			 * returnString = returnString.replace("Ζ", "&Zeta;");
-			 * returnString = returnString.replace("Η", "&Eta;");
-			 * returnString = returnString.replace("Θ", "&Theta;");
-			 * returnString = returnString.replace("Ι", "&Iota;");
-			 * returnString = returnString.replace("Κ", "&Kappa;");
-			 * returnString = returnString.replace("Λ", "&Lambda;");
-			 * returnString = returnString.replace("Μ", "&Mu;");
-			 * returnString = returnString.replace("Ν", "&Nu;");
-			 * returnString = returnString.replace("Ξ", "&Xi;");
-			 * returnString = returnString.replace("Ο", "&Omicron;");
-			 * returnString = returnString.replace("Π", "&Pi;");
-			 * returnString = returnString.replace("Ρ", "&Rho;");
-			 * returnString = returnString.replace("Σ", "&Sigma;");
-			 * returnString = returnString.replace("Τ", "&Tau;");
-			 * returnString = returnString.replace("Υ", "&Upsilon;");
-			 * returnString = returnString.replace("Φ", "&Phi;");
-			 * returnString = returnString.replace("Χ", "&Chi;");
-			 * returnString = returnString.replace("Ψ", "&Psi;");
-			 * returnString = returnString.replace("Ω", "&Omega;");
-			 * returnString = returnString.replace("α", "&alpha;");
-			 * returnString = returnString.replace("β", "&beta;");
-			 * returnString = returnString.replace("γ", "&gamma;");
-			 * returnString = returnString.replace("δ", "&delta;");
-			 * returnString = returnString.replace("ε", "&epsilon;");
-			 * returnString = returnString.replace("ζ", "&zeta;");
-			 * returnString = returnString.replace("η", "&eta;");
-			 * returnString = returnString.replace("θ", "&theta;");
-			 * returnString = returnString.replace("ι", "&iota;");
-			 * returnString = returnString.replace("κ", "&kappa;");
-			 * returnString = returnString.replace("λ", "&lambda;");
-			 * returnString = returnString.replace("μ", "&mu;");
-			 * returnString = returnString.replace("ν", "&nu;");
-			 * returnString = returnString.replace("ξ", "&xi;");
-			 * returnString = returnString.replace("ο", "&omicron;");
-			 * returnString = returnString.replace("π", "&pi;");
-			 * returnString = returnString.replace("ρ", "&rho;");
-			 * returnString = returnString.replace("ς", "&sigmaf;");
-			 * returnString = returnString.replace("σ", "&sigma;");
-			 * returnString = returnString.replace("τ", "&tau;");
-			 * returnString = returnString.replace("�...", "&upsilon;");
-			 * returnString = returnString.replace("φ", "&phi;");
-			 * returnString = returnString.replace("χ", "&chi;");
-			 * returnString = returnString.replace("ψ", "&psi;");
-			 * returnString = returnString.replace("ω", "&omega;");
-			 */
-		}
-		return returnString;
-
-	}
-
-	/**
 	 * Description: Entfernt ungültige Zeichen aus einem String und erzeugt daraus einen
 	 * gültigen Verwendungszweck für Zahlungen
 	 *
-	 * @param string
+	 * @param string valueString which needed to convert
 	 * @return Creation: 25.08.2015 by mst
 	 */
-	public static String getValidVerwendungszweckString(String string)
-	{
-		// Dateiname in Kleinbuchstaben abbilden.
+	public static String escapeStringToHtml(final String valueString) {
+		String returnString = "";
+		if (valueString != null) {
+			returnString = valueString.replace("\u00C4", "&Auml;"); // Ä
+			returnString = valueString.replace("\u00E4", "&auml;"); // ä
+			returnString = valueString.replace("\u00CB", "&Euml;"); // Ë
+			returnString = valueString.replace("\u00EB", "&euml;"); // ë
+			returnString = valueString.replace("\u00CF", "&Iuml;"); // Ï
+			returnString = valueString.replace("\u00EF", "&iuml;"); // ï
+			returnString = valueString.replace("\u00D6", "&Ouml;"); // Ö
+			returnString = valueString.replace("\u00F6", "&ouml;"); // ö
+			returnString = valueString.replace("\u00DC", "&Uuml;"); // Ü
+			returnString = valueString.replace("\u00FC", "&uuml;"); // ü
+			returnString = valueString.replace("\u0178", "&Yuml;"); // Ÿ
+			returnString = valueString.replace("\u00FF", "&yuml;"); // ÿ
+			returnString = valueString.replace("\u00C0", "&Agrave;"); // À
+			returnString = valueString.replace("\u00C1", "&Aacute;"); // Á
+			returnString = valueString.replace("\u00C2", "&Acirc;"); // Â
+			returnString = valueString.replace("\u00C3", "&Atilde;"); // Ã
+			returnString = valueString.replace("\u00C5", "&Aring;"); // Å
+			returnString = valueString.replace("\u00C6", "&AElig;"); // Æ
+			returnString = valueString.replace("\u00C7", "&Ccedil;"); // Ç
+			returnString = valueString.replace("\u00C8", "&Egrave;"); // È
+			returnString = valueString.replace("\u00C9", "&Eacute;"); // É
+			returnString = valueString.replace("\u00CA", "&Ecirc;"); // Ê
+			returnString = valueString.replace("\u00CC", "&Igrave;"); // Ì
+			returnString = valueString.replace("\u00CD", "&Iacute;"); // Í
+			returnString = valueString.replace("\u00CE", "&Icirc;"); // Î
+			returnString = valueString.replace("\u00D0", "&ETH;"); // Ð
+			returnString = valueString.replace("\u00D1", "&Ntilde;"); // Ñ
+			returnString = valueString.replace("\u00D2", "&Ograve;"); // Ò
+			returnString = valueString.replace("\u00D3", "&Oacute;"); // Ó
+			returnString = valueString.replace("\u00D4", "&Ocirc;"); // Ô
+			returnString = valueString.replace("\u00D5", "&Otilde;"); // Õ
+			returnString = valueString.replace("\u00D8", "&Oslash;"); // Ø
+			returnString = valueString.replace("\u0152", "&OElig;"); // Œ
+			returnString = valueString.replace("\u00D9", "&Ugrave;"); // Ù
+			returnString = valueString.replace("\u00DA", "&Uacute;"); // Ú
+			returnString = valueString.replace("\u00DB", "&Ucirc;"); // Û
+			returnString = valueString.replace("\u00DD", "&Yacute;"); // Ý
+			returnString = valueString.replace("\u00DE", "&THORN;"); // Þ
+			returnString = valueString.replace("\u00E0", "&agrave;"); // à
+			returnString = valueString.replace("\u00E1", "&aacute;"); // á
+			returnString = valueString.replace("\u00E2", "&acirc;"); // â
+			returnString = valueString.replace("\u00E3", "&atilde;"); // ã
+			returnString = valueString.replace("\u00E5", "&aring;"); // å
+			returnString = valueString.replace("\u00E6", "&aelig;"); // æ
+			returnString = valueString.replace("\u00E7", "&ccedil;"); // ç
+			returnString = valueString.replace("\u00E8", "&egrave;"); // è
+			returnString = valueString.replace("\u00E9", "&eacute;"); // é
+			returnString = valueString.replace("\u00EA", "&ecirc;"); // ê
+			returnString = valueString.replace("\u00EC", "&igrave;"); // ì
+			returnString = valueString.replace("\u00ED", "&iacute;"); // í
+			returnString = valueString.replace("\u00EE", "&icirc;"); // î
+			returnString = valueString.replace("\u00F0", "&eth;"); // ð
+			returnString = valueString.replace("\u00F1", "&ntilde;"); // ñ
+			returnString = valueString.replace("\u00F2", "&ograve;"); // ò
+			returnString = valueString.replace("\u00F3", "&oacute;"); // ó
+			returnString = valueString.replace("\u00F4", "&ocirc;"); // ô
+			returnString = valueString.replace("\u00F5", "&otilde;"); // õ
+			returnString = valueString.replace("\u00F8", "&oslash;"); // ø
+			returnString = valueString.replace("\u0153", "&oelig;"); // œ
+			returnString = valueString.replace("\u00F9", "&ugrave;"); // ù
+			returnString = valueString.replace("\u00FA", "&uacute;"); // ú
+			returnString = valueString.replace("\u00FB", "&ucirc;"); // û
+			returnString = valueString.replace("\u00FD", "&yacute;"); // ý
+			returnString = valueString.replace("\u00FE", "&thorn;"); // þ
+			returnString = valueString.replace("\u0160", "&Scaron;"); // Š
+			returnString = valueString.replace("\u0161", "&scaron;"); // š
+			returnString = valueString.replace("\u00DF", "&szlig;"); // ß
+		}
+		return returnString;
+	}
+
+	/**
+	 * Cleans and sanitizes a given string to remove invalid characters, transform special characters,
+	 * and make it suitable for use as a Verwendungszweck (purpose) string in payment systems.
+	 *
+	 * @param string The input string to be cleaned and transformed.
+	 * @return A sanitized string suitable for usage as a Verwendungszweck string.
+	 */
+	public static String getValidVerwendungszweckString(String string) {
 		string = string.toLowerCase();
 		string = string.trim();
 
-		// string = string.replaceAll("\\*\\*\\*", "");
-		string = string.replaceAll("ä", "ae");
-		string = string.replaceAll("ü", "ue");
-		string = string.replaceAll("ö", "oe");
-		string = string.replace('\'', '#');
-		string = string.replace('\"', '#');
-		string = string.replace('´', '-');
-		string = string.replace('`', ' ');
-		string = string.replace('á', 'a');
-		string = string.replace('à', 'a');
-		string = string.replace('é', 'e');
-		string = string.replace('è', 'e');
-		string = string.replace('ó', 'o');
-		string = string.replace('ò', 'o');
-		string = string.replace('ú', 'u');
-		string = string.replace('ù', 'u');
-		string = string.replaceAll("ß", "ss");
-		string = string.replace('%', ' ');
-		string = string.replace('/', ' ');
-		string = string.replace('-', ' ');
-		string = string.replace('?', ' ');
-		string = string.replace('<', ' ');
-		string = string.replace('>', ' ');
+		string = string.replaceAll("\u00E4", "ae"); // ä
+		string = string.replaceAll("\u00FC", "ue"); // ü
+		string = string.replaceAll("\u00F6", "oe"); // ö
+		string = string.replace('\'', '#'); // '
+		string = string.replace('"', '#'); // "
+		string = string.replace('\u00B4', '-'); // ´
+		string = string.replace('`', ' '); // `
+		string = string.replace('\u00E1', 'a'); // á
+		string = string.replace('\u00E0', 'a'); // à
+		string = string.replace('\u00E9', 'e'); // é
+		string = string.replace('\u00E8', 'e'); // è
+		string = string.replace('\u00F3', 'o'); // ó
+		string = string.replace('\u00F2', 'o'); // ò
+		string = string.replace('\u00FA', 'u'); // ú
+		string = string.replace('\u00F9', 'u'); // ù
+		string = string.replaceAll("\u00DF", "ss"); // ß
+		string = string.replace('%', ' '); // %
+		string = string.replace('/', ' '); // /
+		string = string.replace('-', ' '); // -
+		string = string.replace('?', ' '); // ?
+		string = string.replace('<', ' '); // <
+		string = string.replace('>', ' '); // >
 
 		string = string.replaceAll("###", "");
 		string = string.replaceAll("#", "");
@@ -240,12 +182,13 @@ public class StringTool
 		string = string.replaceAll("\\.\\.", "");
 		string = string.replaceAll("\\.\\.\\.", "");
 		string = string.replaceAll("&#063;", "");
-		string = string.replaceAll("„", "");
-		string = string.replaceAll("“", "");
-		string = string.replaceAll("\\.", "");
+		string = string.replaceAll("\u201E", ""); // „
+		string = string.replaceAll("\u201C", ""); // “
+		string = string.replaceAll("\\.", ""); // .
 
 		return string;
 	}
+
 
 	/**
 	 * Entfernt ungültige Zeichen aus einem String und erzeugt daraus einen
@@ -254,49 +197,47 @@ public class StringTool
 	 * @param string Dateiname (OHNE ENDUNG wie .html!!
 	 * @return
 	 */
-	public static String getValidFileNameFromString(String string)
-	{
-		// Dateiname in Kleinbuchstaben abbilden.
+	public static String getValidFileNameFromString(String string) {
 		string = string.toLowerCase();
 		string = string.trim();
 
-		// string = string.replaceAll("\\*\\*\\*", "");
-		string = string.replaceAll("ä", "ae");
-		string = string.replaceAll("ü", "ue");
-		string = string.replaceAll("ö", "oe");
-		string = string.replace('\'', '#');
-		string = string.replace('\"', '#');
-		string = string.replace('´', '-');
-		string = string.replace('`', ' ');
-		string = string.replace('á', 'a');
-		string = string.replace('à', 'a');
-		string = string.replace('é', 'e');
-		string = string.replace('è', 'e');
-		string = string.replace('ó', 'o');
-		string = string.replace('ò', 'o');
-		string = string.replace('ú', 'u');
-		string = string.replace('ù', 'u');
-		string = string.replaceAll("ß", "ss");
-		string = string.replace('%', '#');
-		string = string.replace('/', '#');
-		string = string.replace(' ', '-');
-		string = string.replace('?', '#');
-		string = string.replace('<', '#');
-		string = string.replace('>', '#');
+		string = string.replaceAll("\u00E4", "ae"); // ä
+		string = string.replaceAll("\u00FC", "ue"); // ü
+		string = string.replaceAll("\u00F6", "oe"); // ö
+		string = string.replace('\'', '#'); // '
+		string = string.replace('"', '#'); // "
+		string = string.replace('\u00B4', '-'); // ´
+		string = string.replace('`', ' '); // `
+		string = string.replace('\u00E1', 'a'); // á
+		string = string.replace('\u00E0', 'a'); // à
+		string = string.replace('\u00E9', 'e'); // é
+		string = string.replace('\u00E8', 'e'); // è
+		string = string.replace('\u00F3', 'o'); // ó
+		string = string.replace('\u00F2', 'o'); // ò
+		string = string.replace('\u00FA', 'u'); // ú
+		string = string.replace('\u00F9', 'u'); // ù
+		string = string.replaceAll("\u00DF", "ss"); // ß
+		string = string.replace('%', '#'); // %
+		string = string.replace('/', '#'); // /
+		string = string.replace(' ', '-'); // space
+		string = string.replace('?', '#'); // ?
+		string = string.replace('<', '#'); // <
+		string = string.replace('>', '#'); // >
 
-		string = string.replace(' ', '-');
+		string = string.replace(' ', '-'); // space
 		string = string.replaceAll("###", "");
 		string = string.replaceAll("#", "");
 		string = string.replaceAll("<br>", "");
 		string = string.replaceAll("\\.\\.", "");
 		string = string.replaceAll("\\.\\.\\.", "");
 		string = string.replaceAll("&#063;", "");
-		string = string.replaceAll("„", "");
-		string = string.replaceAll("“", "");
-		string = string.replaceAll("\\.", "");
+		string = string.replaceAll("\u201E", ""); // „
+		string = string.replaceAll("\u201C", ""); // “
+		string = string.replaceAll("\\.", ""); // .
 
 		return string;
 	}
+
 
 	/**
 	 * Description: convert from UTF-8 -> internal Java String format
@@ -307,7 +248,7 @@ public class StringTool
 	 */
 	public static String convertFromUTF8(String s) throws UnsupportedEncodingException
 	{
-		return new String(s.getBytes("ISO-8859-1"), "UTF-8");
+		return new String(s.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
 	}
 
 	/**
@@ -319,7 +260,7 @@ public class StringTool
 	 */
 	public static String convertToUTF8(String s) throws UnsupportedEncodingException
 	{
-		return new String(s.getBytes("UTF-8"), "ISO-8859-1");
+		return new String(s.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1);
 	}
 
 	/**
@@ -330,14 +271,14 @@ public class StringTool
 	 */
 	public static String verketteStringVector2String(final Vector<String> vector)
 	{
-		String string = "";
+		StringBuilder string = new StringBuilder();
 
 		String[] stringArray = vector.toArray(new String[0]);
-		for (int i = 0; i < stringArray.length; i++)
+		for (String s : stringArray)
 		{
-			string = string + stringArray[i];
+			string.append(s);
 		}
-		return string;
+		return string.toString();
 
 	}
 
@@ -349,14 +290,14 @@ public class StringTool
 	 */
 	public static String verketteStringArraylist2String(List<String> arrayList)
 	{
-		String string = "";
+		StringBuilder string = new StringBuilder();
 
 		String[] stringArray = arrayList.toArray(new String[0]);
-		for (int i = 0; i < stringArray.length; i++)
+		for (String s : stringArray)
 		{
-			string = string + stringArray[i];
+			string.append(s);
 		}
-		return string;
+		return string.toString();
 
 	}
 
@@ -368,13 +309,13 @@ public class StringTool
 	 */
 	public static String verketteStringArraylist2String(String[] stringArray)
 	{
-		String string = "";
+		StringBuilder string = new StringBuilder();
 
-		for (int i = 0; i < stringArray.length; i++)
+		for (String s : stringArray)
 		{
-			string = string + stringArray[i];
+			string.append(s);
 		}
-		return string;
+		return string.toString();
 
 	}
 
@@ -386,21 +327,22 @@ public class StringTool
 	 */
 	public static String verketteStringArray2StringWithNewLine(String[] stringArray)
 	{
-		String string = "";
+		StringBuilder string = new StringBuilder();
 
 		for (int i = 0; i < stringArray.length; i++)
 		{
 			if (i == 0)
 			{
-				string = string + stringArray[i];
+				string.append(stringArray[i]);
 			}
 			else
 			{
-				string = string + "\n" + stringArray[i];
+				string.append("\n")
+					  .append(stringArray[i]);
 			}
 
 		}
-		return string;
+		return string.toString();
 
 	}
 
